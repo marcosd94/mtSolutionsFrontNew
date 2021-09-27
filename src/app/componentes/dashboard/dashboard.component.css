@@ -1,0 +1,11 @@
+.classImage {
+    display: block;
+    margin: auto;
+    background-position: 30px;
+}
+
+.txtGrande {
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--black-color);
+}

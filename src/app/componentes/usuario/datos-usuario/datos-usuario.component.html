@@ -1,0 +1,143 @@
+<div [formGroup]="formCtrl" class="row">
+    <div class="col s10 m10 l10 offset-m1 offset-l1">
+        <div class="row bottom-none">
+            <div class="row div-volver">
+                <button class="btn-flat volver" (click)="irAUsuario()"><i class="material-icons ">chevron_left</i>Volver</button>
+            </div>
+        </div>
+        <!--TITULO-->
+        <div class="row">
+            <div class="col s6 m6 l6">
+                <p class="tituloOP">{{ titulo }}</p>
+            </div>
+        </div>
+        <!--GESTION DE IMAGEN-->
+        <div class="row">
+            <!--IMAGEN-->
+            <div class="col s12 m2 l2">
+                <div class="card bordeado">
+                    <div class="card-image">
+                        <img class="classImage" src="assets/img/ejemplo.jpeg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <!--DATOS DEL USUARIO-->
+            <div class="col s12 m10 l10">
+                <div class="row bottom-none">
+                    <div class="input-field col s12 m12 l12 bottom-none">
+                        <label class="relative" for="id_nombre">{{txt.nombreCompleto}}</label>
+                        <input class="bordeadito cajon" [title]="'Ingrese el nombre completo'" maxlength="60" style="height: 2rem;" formControlName="nombreUsuario" id="id_nombre" type="text">
+                    </div>
+                </div>
+                <div class="row bottom-none">
+                    <div class="input-field col s12 m12 l12 bottom-none">
+                        <label class="relative" for="id_apellido">{{txt.apellidoCompleto}}</label>
+                        <input class="bordeadito cajon" [title]="'Ingrese el apellido completo'" maxlength="60" style="height: 2rem;" formControlName="apellidoUsuario" id="id_apellido" type="text">
+                    </div>
+                </div>
+                <div class="row bottom-none">
+                    <div class="input-field col s12 m12 l12 bottom-none">
+                        <label class="relative" for="id_cedula">{{txt.cedula}}</label>
+                        <input class="bordeadito cajon" [title]="'Ingrese el número de documento'" id="id_cedula" style="height: 2rem;" maxlength="10" (keyup)="formatearCi($event)" [(value)]="cedulaFormateado" formControlName="cedula" type="text">
+                    </div>
+                </div>
+                <div class="row bottom-none">
+                    <div class="input-field col s12 m12 l12 bottom-none">
+                        <label class="relative" for="id_telefono">{{txt.telefono}}</label>
+                        <input class="bordeadito cajon" [title]="'Ingrese el número de telefono'" maxlength="12" style="height: 2rem;" formControlName="telefono" id="id_telefono" type="text">
+                    </div>
+                </div>
+                <div class="row bottom-none">
+                    <div class="input-field col s12 m12 l12 bottom-none">
+                        <label class="relative" for="id_email">{{txt.email}}</label>
+                        <input class="bordeadito cajon" [title]="'Ingrese la dirección de correo'" maxlength="20" style="height: 2rem;" formControlName="email" id="id_email" type="text">
+                    </div>
+                </div>
+                <div class="row bottom-none">
+                    <div class="input-field col s12 m12 l12 bottom-none">
+                        <label class="relative" for="id_cargo">{{txt.direccion}}</label>
+                        <input class="bordeadito cajon" [title]="'Ingrese la direccion de su casa'" maxlength="60" style="height: 2rem;" formControlName="direccion" id="id_direccion" type="text">
+                    </div>
+                </div>
+            </div>
+            <!--PERFILES Y PERMISOS-->
+            <div>
+                <div class="row">
+                    <div class="col s12 m12 l12 titulo2">
+                        <span>{{txt.roles}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m12 l12 titulo3">
+                        <span>{{txt.selecciona}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m4 l4">
+                        <ng-select [virtualScroll]="true" [dropdownPosition]="'bottom'" [searchable]="false" [clearable]="false" id="idSelectorRol" class="custom2" [items]="dataSelect" formControlName="rolSeleccion" bindLabel="nombre" bindValue="id" (change)="onChange()" (clear)="onClear()">
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="row"></div>
+                <div class="row">
+                    <div class="col s12 m12 l12 titulo3">
+                        <span>{{txt.rolSelecciona + rol?.nombre}}</span>
+                    </div>
+                </div>
+                <div formArrayName="items" class="row">
+                    <div *ngFor="let pp of getItems.controls| paginate: {id: 'listaFuncionalidadesId',
+              itemsPerPage: pagination.pageSize,
+              currentPage: pagination.page,
+              totalItems: listaFuncionalidades.length
+            }, index as i" [formGroupName]="i" class="col s12 m4 l4">
+                        <div style="margin-bottom: unset;" class="row">
+                            <div class="col s12 m12 l12">
+                                <div id="i">
+                                    <div class="cuadro cursorpointer">
+                                        <div style="padding-top: 3%; margin-bottom: 0;" class="row">
+                                            <div style="margin-right: 10px;" class="col s1 m1 l1">
+                                                <div class="switch">
+                                                    <label>
+                                                <input formControlName="activo" type="checkbox" id="{{pp?.get('id')?.value}}">
+                                                <span class="lever"></span>
+                                              </label>
+                                                </div>
+                                            </div>
+                                            <div class="col s9 m9 l9">
+                                                <span class="tituloTS2">{{pp?.get('nombre')?.value }}</span>
+                                            </div>
+                                        </div>
+                                        <div style="padding-bottom: 2%; height: 10vh;
+                                  overflow: auto;" class="row">
+                                            <div class="col s11 m11 l11 offset-s1 offset-m1 offset-l1">
+                                                <span class="claroTxt">{{pp?.get('descripcion')?.value }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m12 l12 center-align">
+                        <pagination-controls id="listaFuncionalidadesId" (pageChange)="cambioPagina($event)" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m12 l12 bottom-none">
+                        <div class="row centrado">
+                            <div class="col s12 m12 l12">
+                                <button title="Crear pago masivo" class="btn waves-effect waves-teal mybtn" type="button" (click)="crearUsuario()" name="action">
+                  {{ txt.guardar }}
+                  </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row"></div>
+            </div>
+        </div>
+    </div>
+</div>

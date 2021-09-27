@@ -1,0 +1,33 @@
+<div [formGroup]="formCtrl" class="row">
+    <div class="col s12 m12 l12">
+        <div class="marginTop">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <img class="classImage" src="assets/img/tiendita.jpeg" alt="">
+                </div>
+                <div class="col s12 m6 l6">
+                    <div class="row margin-x">
+                        <div class="input-field col s12 m5 l5">
+                            <input id="idUser" formControlName="user" (keypress)="pulsar($event)" type="text" class="validate" required />
+                            <label for="idUser">{{ texto.usuarioLogin }}</label>
+                            <small class="danger" *ngIf="getUser.errors?.required && (getUser.dirty || getUser.touched)">{{ texto.usuarioRequerido }}</small>
+                        </div>
+                    </div>
+                    <div class="row margin-h">
+                        <div class="input-field col s12 m5 l5">
+                            <input id="idPass" formControlName="pass" (keypress)="pulsar($event)" type="password" class="validate" required />
+                            <label for="idPass">{{ texto.passwordLogin }}</label>
+                            <i [title]="textoojo" id="visor-password-id" (click)="cambioVision()" class="material-icons prefix ojo">remove_red_eye</i>
+                            <small class="danger" *ngIf="getPass.errors?.required && (getPass.dirty || getPass.touched)">{{ texto.passwordRequerido }}</small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m5 l5 centrado">
+                            <button class="btn waves-effect waves-teal mybtn" type="button" (click)="loginAction($event)" name="action" [disabled]="formCtrl.invalid">{{ texto.inicio }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+.marginTop {
+    margin-top: 10%;
+}
+
+.danger {
+    color: red;
+}
+
+.classImage {
+    display: block;
+    margin: auto;
+    float: right;
+}
+
+.ojopintado {
+    color: #263238;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.ojo {
+    color: gray;
+    font-size: 20px;
+    cursor: pointer;
+}

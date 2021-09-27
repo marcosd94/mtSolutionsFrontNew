@@ -1,0 +1,62 @@
+.tituloOP {
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.mensajeFocusOut {
+    font-size: 11px;
+    visibility: hidden;
+}
+
+.mensajeFocusIn {
+    font-size: 11px;
+    visibility: visible;
+}
+
+input#buscador_id:focus {
+    border-bottom: 1px solid #201919;
+    box-shadow: 0 1px 0 0 #201919;
+}
+
+input#buscador_id {
+    border: 1px solid #78909C;
+    padding-left: 5px;
+}
+
+.contadorIn {
+    visibility: visible;
+}
+
+.contadorOut {
+    visibility: hidden;
+}
+
+.bordeado {
+    border: 1px solid #B0BEC5;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.classImage {
+    margin: auto;
+    border-radius: 100% !important;
+    width: 50% !important;
+}
+
+.card-image {
+    margin-top: 5px;
+}
+
+.accioncss {
+    color: #0277BD;
+    cursor: pointer;
+}
+
+.registros {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 19px;
+    color: #263238;
+    margin: 0 8px;
+}

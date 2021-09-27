@@ -1,0 +1,83 @@
+.bordeado {
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.card-image {
+    margin-top: 5px;
+}
+
+.tituloOP {
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.classImage {
+    margin: auto;
+    border-radius: 100% !important;
+    width: 100% !important;
+}
+
+input.bordeadito:focus {
+    border-bottom: 1px solid #201919 !important;
+    box-shadow: 0 1px 0 0 #201919 !important;
+    margin-left: 0.75rem;
+    width: calc(100% - 30px);
+}
+
+input.bordeadito {
+    border: 1px solid #78909C;
+    padding-left: 5px;
+    margin-left: 0.75rem;
+    width: calc(100% - 30px);
+}
+
+.relative {
+    position: relative;
+}
+
+.div-volver {
+    margin: 12px 0 0 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.volver {
+    padding: auto;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #0277bd;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px;
+    padding: 4px;
+    text-transform: capitalize;
+}
+
+.titulo2 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 0.75rem !important;
+    margin-top: 2rem !important;
+}
+
+.cajon {
+    background: #FFFFFF !important;
+    border: 1px solid #B0BEC5 !important;
+    box-sizing: border-box !important;
+    border-radius: 4px !important;
+}
+
+.titulo3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 0.75rem !important;
+    margin-top: 2rem !important;
+    color: #546E7A;
+}
